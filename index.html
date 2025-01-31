@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+    <title>GENTECH</title>
+    <style>
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#imei" id="imeiTab" onclick="showTab('imei')">Service</a>
+        </div>
+    </nav>
+
+    <div id="imei" class="items">
+        <h2>GENTECH SERVER</h2>
+        <div class="item-grid">
+            <div class="item">
+                <img src="img/samsung.png" alt="IMEI">
+                <p class="item-desc">Samsung FRP remove Worldwide By IMEI</p>
+                <p class="item-price">₱600</p>
+                <a href="#" class="buy-btn" id="openModalButton">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/unlocktool.png" alt="UnlockTool">
+                <p class="item-desc">UnlockTool Rent <br> 6 Hours</p>
+                <p class="item-price">₱200</p>
+                <a href="#" class="buy-btn" onclick="openModal('unlockTool', 'UnlockTool Rent - 6 Hours', 200)">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/unlocktool.png" alt="UnlockTool">
+                <p class="item-desc">UnlockTool Rent <br> 8 Hours</p>
+                <p class="item-price">₱250</p>
+                <a href="#" class="buy-btn" onclick="openModal('unlockTool', 'UnlockTool Rent - 8 Hours', 250)">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/unlocktool.png" alt="UnlockTool">
+                <p class="item-desc">UnlockTool Rent <br> 12 Hours</p>
+                <p class="item-price">₱350</p>
+                <a href="#" class="buy-btn" onclick="openModal('unlockTool', 'UnlockTool Rent - 12 Hours', 350)">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/unlocktool.png" alt="UnlockTool">
+                <p class="item-desc">UnlockTool Rent <br> 24 Hours</p>
+                <p class="item-price">₱500</p>
+                <a href="#" class="buy-btn" onclick="openModal('unlockTool', 'UnlockTool Rent - 24 Hours', 500)">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/remote.png" alt="Item 1">
+                <p class="item-desc">Android Remote<br>Bypass</p>
+                <p class="item-price">₱0</p>
+                <a href="https://m.me/gsmgentech" class="buy-btn">Place Order</a>
+            </div>
+            <div class="item">
+                <img src="img/remote.png" alt="Item 2">
+                <p class="item-desc">IPhone Remote<br>Bypass</p>
+                <p class="item-price">₱0</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/at&t.png" alt="Item 2">
+                <p class="item-desc">AT&T<br>Clean only</p>
+                <p class="item-price">₱50</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/at&t.png" alt="Item 2">
+                <p class="item-desc">Samsung USA<br>AT&T</p>
+                <p class="item-price">₱0</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/samsung.png" alt="Item 2">
+                <p class="item-desc">Samsung USA<br>Unlock All Networks</p>
+                <p class="item-price">₱4,500</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/at&t.png" alt="Item 2">
+                <p class="item-desc">AT&T USA All models<br>Till 14 Pro Max</p>
+                <p class="item-price">₱11,500</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/imei.jpg" alt="Item 2">
+                <p class="item-desc">Honor All Models FRP<br>Unlock Key Code Fast</p>
+                <p class="item-price">₱3,500</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+            <div class="item">
+                <img src="img/imei.jpg" alt="Item 2">
+                <p class="item-desc">Honor All Models FRP<br>Unlock Key Code Slow</p>
+                <p class="item-price">₱2,300</p>
+                <a href="#" class="buy-btn" style="color: #FF0000;">Not Available</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="samsungNoteModal" class="modal">
+        <div class="modal-content">
+        <span class="close-btn" id="closeModalButton">&times;</span>
+        <h4 style="font-size: 18px;">
+            <span style="color: #239b56;">For Samsung devices only.</span><br><br>
+
+            <span style="color: #239b56;">✅ A hard reset is required before order submission.</span><br>
+            <span style="color: #239b56;">✅ Activate Wi-Fi after submission.</span><br><br>
+
+            <strong><span style="color: #FF2400;">Not Supported Models:</span></strong><br>
+            ❌ ALL A145 SERIES<br>
+            ❌ SM-A025M/DS<br>
+            ❌ SM-A057M/DS<br>
+            ❌ SM-A107F/DS<br>
+            ❌ SM-A146M/DS<br>
+            ❌ SM-A207M/DS<br>
+            ❌ A01, A02, A03, A04, A11, A14, A21<br><br>
+
+            <strong><span style="color: #FF2400;">Additional Restrictions:</span></strong><br>
+            ❌ No refunds for incorrect IMEI.<br>
+            ❌ KG Locked/MDM<br>
+            ❌ Blacklisted<br>
+        </h4>
+            <a href="#" class="buy-btn" id="openModalButton" onclick="openModal('imei', 'Samsung FRP remove Worldwide By IMEI', 600)">Proceed</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <div class="modal" id="imeiModal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>IMEI Checkout</h2>
+        <form id="imeiForm">
+            <input type="text" id="imeiItemName" readonly>
+            <input type="text" id="imeiItemPrice" readonly>
+            <input type="text" id="imeiNumber" placeholder="Enter IMEI (15 digits)" required>
+            <input type="text" id="serialNumber" placeholder="Enter Serial Number" required>
+            <h1 style="font-size: 15px;">Kindly provide your contact number to receive your order information</h1>
+            <input type="text" id="contactNumber" placeholder="Contact Number" required>
+            <h1 style="font-size: 15px;">
+            Gcash: Genrev I.<br>
+            Number: 09923965626</h1>
+            <input type="number" id="number" placeholder="Gcash Reference Number" required>
+            <button id="openModalBtn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="modal" id="unlockToolModal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>UnlockTool Checkout</h2>
+        <form id="unlockToolForm">
+            <input type="text" id="unlockToolItemName" readonly>
+            <input type="text" id="unlockToolItemPrice" readonly>
+            <h1 style="font-size: 15px;">Kindly provide your contact number to receive your order information</h1>
+            <input type="text" id="contactNumber" placeholder="Contact Number" required>
+            <h1 style="font-size: 15px;">
+            Gcash: Genrev I.<br>
+            Number: 09923965626</h1>
+            <input type="number" id="number" placeholder="Gcash Reference Number" required>
+            <button id="openModalBtn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="js/scripts.js"></script>
+
+    <script>
+        const modal = document.getElementById("samsungNoteModal");
+        const openButton = document.getElementById("openModalButton");
+        const closeButton = document.getElementById("closeModalButton");
+
+        openButton.addEventListener("click", function() {
+            modal.style.display = "flex";
+        });
+
+        closeButton.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+    <script src="js/backup1.js"></script>
+
+    <script>
+        localStorage.clear();
+
+        function resetInputs() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => input.value = '');
+
+            const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+            checkboxes.forEach(input => input.checked = false);
+
+            const dynamicContent = document.getElementById('dynamicContent');
+            if (dynamicContent) {
+                dynamicContent.innerHTML = '';
+            }
+        }
+
+        resetInputs();
+
+        console.log("All local storage and page inputs have been cleared.");
+    </script>
+</body>
+</html>
