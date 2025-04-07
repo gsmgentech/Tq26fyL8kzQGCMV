@@ -1,42 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>reCAPTCHA with Images Example</title>
-  <!-- Include the Google reCAPTCHA API -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Maintenance Notice</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a95, #f9d423, #ff4b1f, #1fddff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .maintenance-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff7e5f;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .gentech-image {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <h2>reCAPTCHA v2 - Image Challenge</h2>
+    <div class="content">
+        <img class="gentech-image" src="img/gentechserver.png" alt="Gentech Server">
+        <img src="img/maintenance.png" alt="Server Maintenance" class="maintenance-img">
+        <h1></h1>
+        <p>Our servers are currently undergoing maintenance. We apologize for any inconvenience and appreciate your patience. Thank you for your understanding.</p>
+    </div>
 
-  <form id="myForm">
-    <!-- Input field for user -->
-    <input type="text" id="username" placeholder="Your name" required><br><br>
+    <script>
+        window.onload = function() {
+            localStorage.clear();
+            console.log("Local storage cleared.");
+        };
 
-    <!-- Google reCAPTCHA widget (Image-based challenge will be shown here) -->
-    <div class="g-recaptcha" data-sitekey="6LeN4AwrAAAAAMxfYRWcFadKT1DGWzHaEmsF2fn0"></div>
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-    <br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <p id="result"></p>
-
-  <script>
-    document.getElementById("myForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Get the reCAPTCHA response
-      const response = grecaptcha.getResponse();
-
-      if (!response) {
-        document.getElementById("result").textContent = "Please complete the CAPTCHA.";
-        return;
-      }
-
-      // Simulate form submission after reCAPTCHA is successfully completed
-      document.getElementById("result").textContent = "CAPTCHA completed successfully!";
-    });
-  </script>
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
