@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>reCAPTCHA</title>
-  <!-- Load the reCAPTCHA script -->
+  <title>reCAPTCHA with Images Example</title>
+  <!-- Include the Google reCAPTCHA API -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-  <h2></h2>
-  
+  <h2>reCAPTCHA v2 - Image Challenge</h2>
+
   <form id="myForm">
-    <!-- User input -->
+    <!-- Input field for user -->
     <input type="text" id="username" placeholder="Your name" required><br><br>
 
-    <!-- Google reCAPTCHA -->
+    <!-- Google reCAPTCHA widget (Image-based challenge will be shown here) -->
     <div class="g-recaptcha" data-sitekey="6LeN4AwrAAAAAMxfYRWcFadKT1DGWzHaEmsF2fn0"></div>
-    
+
     <br>
     <button type="submit">Submit</button>
   </form>
@@ -29,13 +29,12 @@
       // Get the reCAPTCHA response
       const response = grecaptcha.getResponse();
 
-      // If there's no response (user hasn't clicked checkbox)
       if (!response) {
         document.getElementById("result").textContent = "Please complete the CAPTCHA.";
         return;
       }
 
-      // Show success message if CAPTCHA is completed
+      // Simulate form submission after reCAPTCHA is successfully completed
       document.getElementById("result").textContent = "CAPTCHA completed successfully!";
     });
   </script>
