@@ -3,96 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!--meta http-equiv="refresh" content="0; url=maintenance" /-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/logo.png">
-    <title>RENT</title>
+    <title>Maintenance Notice</title>
     <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a95, #f9d423, #ff4b1f, #1fddff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .maintenance-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff7e5f;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .gentech-image {
+            width: 100%;
+        }
     </style>
 </head>
-<body> 
-    <img class="gentech-image" src="img/gentechserver.png">
-    <nav>
-        <div class="nav">
-            <a class="navbt" href="https://www.gentechserver.com/">IMEI</a>
-            <a class="navbt active" href="https://www.gentechserver.com/">RENT</a>
-            <a class="navbt" href="https://www.gentechserver.com/">SERVER</a>
-            <a class="navbt" href="https://www.gentechserver.com/">REMOTE</a>
-        </div>        
-    </nav>
-
-    <div class="box">
-        <input type="text" id="search-box" placeholder="sᴇᴀʀᴄʜ" onkeyup="searchButtons()">
-        <div id="buttons-container"></div>
+<body>
+    <div class="content">
+        <img class="gentech-image" src="img/gentechserver.png">
+        <img src="img/maintenance.png" class="maintenance-img">
+        <h1></h1>
+        <p>Our servers are currently undergoing maintenance. We apologize for any inconvenience and appreciate your patience. Thank you for your understanding.</p>
     </div>
 
     <script>
-        const buttonsData = [
-            { label: 'UNLOCKTOOL RENT', href: '/rent/unlocktool/rentoptions', imgSrc: '../img/gentechserver.png' },
-            { label: 'KG KILLER TOOL RENT', href: 'rent/kgkiller/rentoptions', imgSrc: '../img/gentechserver.png' },
-            { label: 'TSM TOOL RENT', href: 'rent/tsmtool/rentoptions', imgSrc: '../img/gentechserver.png' },
-            { label: 'ANDROID MULTITOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'MDM FIX PRO NEWTOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'CF TOOLS RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'CHEETAH TOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'GRIFFIN UNLOCKER TOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'MDM FIX TOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-            { label: 'MOBILE SEA SERVICE TOOL RENT', href: '', imgSrc: '../img/gentechserver.png' },
-        ];
-    
-        const itemsPerPage = 200;
-        let currentPage = 1;
-        let filteredData = [...buttonsData];
-        
-        function displayButtons() {
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = currentPage * itemsPerPage;
-            const buttonsContainer = document.getElementById('buttons-container');
-            buttonsContainer.innerHTML = '';
-        
-            filteredData.slice(start, end).forEach(button => {
-                const btnElement = document.createElement('a');
-                btnElement.className = 'button';
-                btnElement.href = button.href;
-        
-                const imgElement = document.createElement('img');
-                imgElement.src = button.imgSrc;
-                imgElement.alt = button.label;
-                imgElement.className = 'button-icon';
-        
-                const labelSpan = document.createElement('span');
-                labelSpan.textContent = button.label;
+        window.onload = function() {
+            localStorage.clear();
+            console.log("Local storage cleared.");
+        };
 
-                if (button.label === '' || 
-                    button.label === '' || 
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '' ||
-                    button.label === '') {
-                    labelSpan.classList.add('maintenance-button');
-                }
-        
-                btnElement.appendChild(imgElement);
-                btnElement.appendChild(labelSpan);
-        
-                buttonsContainer.appendChild(btnElement);
-            });
-        }
-        
-        function searchButtons() {
-            const searchTerm = document.getElementById('search-box').value.toLowerCase();
-            filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
-            currentPage = 1;
-            displayButtons();
-        }
-        
-        displayButtons();
-    </script>    
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-    <script src="js/79HK45gP0J.js"></script> 
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
