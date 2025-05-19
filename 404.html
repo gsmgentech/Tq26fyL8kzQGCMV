@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 1.2s ease-out both;
+    }
+
+    .glow {
+      font-size: 120px;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #00ffe0, #ff6ec4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(0, 255, 224, 0.7), 0 0 30px rgba(255, 110, 196, 0.5);
+      animation: pulse 2s infinite alternate;
+    }
+
+    p {
+      font-size: 22px;
+      color: #cccccc;
+      margin-top: 10px;
+    }
+
+    a {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: #00ffe0;
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+    }
+
+    a:hover {
+      background: #ff6ec4;
+      color: #fff;
+      box-shadow: 0 0 15px #ff6ec4, 0 0 30px #ff6ec4;
+    }
+
+    @keyframes pulse {
+      0% {
+        text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+      }
+      100% {
+        text-shadow: 0 0 30px #ff6ec4, 0 0 60px #ff6ec4;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="glow">404</div>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <a href="/">Go Back Home</a>
+  </div>
+</body>
+</html>
