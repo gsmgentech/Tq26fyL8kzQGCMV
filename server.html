@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/qr.png">
+    <title>SERVER</title>
+    <style>
+    </style>
+</head>
+<body> 
+    <img class="gentech-image" src="img/gentechserver.png">
+    <nav>
+        <div class="nav">
+            <!--a href="" class="nav-item"><i class="fa-solid fa-user"></i>LOGIN</a-->
+            <a href="https://gentechserver.com" class="nav-item"><i class="fas fa-fingerprint"></i>IMEI</a>
+            <a href="" class="nav-item active"><i class="fas fa-server"></i>SERVER</a>
+            <a href="https://gentechserver.com/rent" class="nav-item"><i class="fa-solid fa-key"></i></i>RENT</a>
+            <a href="https://gentechserver.com/shop" class="nav-item"><i class="fas fa-store"></i>SHOP</a>
+            <a href="https://gentechserver.com/remote" class="nav-item"><i class="fa-solid fa-desktop"></i></i>REMOTE</a>
+        </div>        
+    </nav>
+
+    <div class="box">
+        <input type="text" id="search-box" placeholder="sᴇᴀʀᴄʜ" onkeyup="searchButtons()">
+        <div id="buttons-container"></div>
+    </div>
+
+    <script>
+        const buttonsData = [
+            { label: 'UNLOCKTOOL 3MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'UNLOCKTOOL 6MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'UNLOCKTOOL 12MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'TSM TOOL PRO 6MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'TSM TOOL PRO 12MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'TSM TOOL PRO 2YEARS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'TSM TOOL PRO CREDITS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'DRAGON FRP TOOL CREDITS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'MiCPID TOOL CREDITS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'KG FIX TOOL 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'FRT TOOL 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'SIGMA PLUS 3DAYS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'SIGMA PLUS 1MONTH', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'SIGMA PLUS 3MONTH', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'MDMFIXTOOL 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'SRS AUTH TOOL 6MONTHS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'SRS AUTH TOOL 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'MOTO KING 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'USB REDIRECTOR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'ADAMA TOOL CREDITS', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'BMT PRO 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'MDMFIXTOOL 1YEAR', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'CHIMERA TOOL CREDIT', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'CHIMERA TOOL 1YEAR 100 DEVICE', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'CHIMERA TOOL 1YEAR 1500 DEVICE', href: '', imgSrc: 'img/gentechserver.png' },
+            { label: 'CHIMERA TOOL 1YEAR 5000 DEVICE', href: '', imgSrc: 'img/gentechserver.png' },
+        ];
+        
+        const itemsPerPage = 200;
+        let currentPage = 1;
+        let filteredData = [...buttonsData];
+        
+        function displayButtons() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = currentPage * itemsPerPage;
+            const buttonsContainer = document.getElementById('buttons-container');
+            buttonsContainer.innerHTML = '';
+        
+            filteredData.slice(start, end).forEach(button => {
+                const btnElement = document.createElement('a');
+                btnElement.className = 'button';
+                btnElement.href = button.href;
+        
+                const imgElement = document.createElement('img');
+                imgElement.src = button.imgSrc;
+                imgElement.alt = button.label;
+                imgElement.className = 'button-icon';
+        
+                const labelSpan = document.createElement('span');
+                labelSpan.textContent = button.label;
+    
+                if (button.label === '' || 
+                    button.label === '' || 
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '') {
+                    labelSpan.classList.add('maintenance-button');
+                }
+        
+                btnElement.appendChild(imgElement);
+                btnElement.appendChild(labelSpan);
+        
+                buttonsContainer.appendChild(btnElement);
+            });
+        }
+        
+        function searchButtons() {
+            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
+            currentPage = 1;
+            displayButtons();
+        }
+        
+        displayButtons();
+    </script>    
+</body>
+</html>

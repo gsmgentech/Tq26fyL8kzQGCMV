@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="icon" href="img/logo.png">
+  <title>Checkout</title>
+  <style>
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: white;
+    }
+    .info-item i {
+      color: whitesmoke;
+      margin-right: 12px;
+      width: 20px;
+      margin-top: 2px;
+    }
+    .info-item span.label {
+      font-weight: 600;
+      margin-right: 4px;
+      color: white;
+    }
+    .pay-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      font-size: 18px;
+      border-radius: 20px;
+      padding: 14px;
+      width: 100%;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bolder;
+    }
+    .pay-btn i {
+      margin-right: 10px;
+    }
+    .back-link {
+      margin-top: 20px;
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      text-decoration: none;
+    }
+    .verification {
+      cursor: pointer;
+      font-size: 2rem;
+      padding: 10px;
+      animation: glitch 0.9s infinite alternate;
+      text-align: center;
+      color: #ffd900;
+      margin-top: 20px;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red, -2px -2px blue; }
+      25% { text-shadow: -2px -2px red, 2px 2px blue; }
+      50% { text-shadow: 2px -2px red, -2px 2px blue; }
+      75% { text-shadow: -2px 2px red, 2px -2px blue; }
+      100% { text-shadow: 2px 2px red, -2px -2px blue; }
+    }
+    input {
+      width: 95%;
+      margin-top: 5px;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      color: whitesmoke;
+      background-color: #37474F;
+      font-weight: bold;
+      text-align: center;
+    }
+    input::placeholder {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+      <img class="gentech-image" src="../../../img/gentechserver.png">
+      <nav>
+          <div class="nav">
+              <!--a href="" class="nav-item"><i class="fa-solid fa-user"></i>LOGIN</a-->
+              <a href="https://gentechserver.com" class="nav-item"><i class="fas fa-fingerprint"></i>IMEI</a>
+              <a href="https://gentechserver.com/server" class="nav-item"><i class="fas fa-server"></i>SERVER</a>
+              <a href="" class="nav-item active"><i class="fa-solid fa-key"></i></i>RENT</a>
+              <a href="https://gentechserver.com/shop" class="nav-item"><i class="fas fa-store"></i>SHOP</a>
+              <a href="https://gentechserver.com/remote" class="nav-item"><i class="fa-solid fa-desktop"></i></i>REMOTE</a>
+          </div>       
+      </nav>
+  <div class="container">
+    <div class="info-item">
+      <i class="fa-regular fa-calendar"></i>
+      <div><span class="label">Transaction ID:</span> <span id="txn-id"></span></div>
+    </div>
+    <div class="info-item">
+      <i class="fa-solid fa-dollar-sign"></i>
+      <div><span class="label">Amount:</span> ₱200</div>
+    </div>
+    <div class="info-item">
+      <i class="fa-solid fa-circle-info"></i>
+      <div><span class="label">Details:</span> UnlockTool 6 Hours</div>
+    </div>
+    <div class="info-item">
+      <i class="fa-regular fa-comment-dots"></i>
+      <div><span class="label">Status:</span> Waiting for client to confirm</div>
+    </div>
+
+    <h1 id="verification" class="verification"></h1>
+    <input 
+      type="text" 
+      placeholder="Verification code" 
+      id="verificationInput" 
+      maxlength="6" 
+      required 
+      autocomplete="one-time-code"
+    >
+
+    <form id="verificationForm" action="https://gentechserver.com/payment">
+      <button class="pay-btn" id="submitButton" disabled>PAY</button>
+    </form>
+
+    <a class="back-link" href="javascript:history.back()">← Back</a>
+  </div>
+
+  <script src="../../../js/f4eq7F3D00.js"></script> 
+</body>
+</html>

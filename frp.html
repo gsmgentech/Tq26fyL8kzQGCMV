@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+    <title>FRP</title>
+    <style>
+    </style>
+</head>
+<body> 
+    <img class="gentech-image" src="img/gentechserver.png">
+
+    <div class="box">
+        <input type="text" id="search-box" placeholder="sᴇᴀʀᴄʜ" onkeyup="searchButtons()">
+        <div id="buttons-container"></div>
+    </div>
+
+    <script>
+        const buttonsData = [
+            { label: 'Setting', href: 'intent://com.android.settings/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Dial Pad', href: 'tel:', imgSrc: '../img/gentechserver.png' },
+            { label: 'ADB Settings', href: 'intent://com.sec.android.app.modemui.activities.USB.settings/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'USB Settings', href: 'intent://com.sec.android.app.servicemodeapp/#Intent;scheme=promote_USBSettings_scheme;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Screen SmartLock', href: 'intent://com.google.android.gms/#Intent;scheme=promote_smartlock_scheme;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Google Assistant', href: 'intent://com.google.android.apps.googleassistant/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Gmail', href: 'intent://com.google.android.gm/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Youtube', href: 'intent://com.google.android.youtube/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Google Map', href: 'intent://com.google.android.apps.maps/#Intent;scheme=android-app;end%22%3E', imgSrc: '../img/gentechserver.png' },
+            { label: 'Google Chrome', href: 'intent://com.android.chrome/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Dial Pad', href: 'intent://com.samsung.android.dialer/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Calculator', href: 'intent://com.sec.android.app.popupcalculator/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Smart Switch', href: 'intent://com.sec.android.easyMover/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Home Launcher', href: 'intent://com.sec.android.app.launcher/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Secure Folder', href: 'intent://com.samsung.knox.securefolder/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung File Manager', href: 'intent://com.sec.android.app.myfiles/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Galaxy Store', href: 'https://www.samsung.com/fr/apps/galaxy-store/', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Samsung  S9Launcher', href: 'https://galaxystore.samsung.com/detail/com.s9launcher.dir.launcher', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Touch iD', href: 'intent://com.android.settings/com.samsung.android.settings.biometrics.fingerprint.FingerprintEntry/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Samsung Login Account', href: 'intent://com.google.android.gsf.login.LoginActivity/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix AI Gallery', href: 'intent://com.gallery20/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix Phone Master', href: 'intent://com.transsion.phonemaster/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix File Manager', href: 'intent://com.transsion.filemanagerx/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix XArena', href: 'intent://com.transsion.gamespace.app/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix Camera', href: 'intent://com.transsion.camera/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Infinix Smart Panel', href: 'intent://com.transsion.smartpanel/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Palm Store', href: 'intent://com.transsnet.store/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Smart Launcher', href: 'intent://ginlemon.flowerfree/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Activity Launcher', href: 'intent://de.szalkowski.activitylauncher/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'OPPO Clone Phone', href: 'intent://com.coloros.backuprestore/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Google Play Store', href: 'intent://com.android.vending/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' },
+            { label: 'Activity Launcher App', href: 'https://www.mediafire.com/file/nn9i1b8xg99vds5/activitylauncher.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'FRP Bypass App', href: 'https://www.mediafire.com/file/tdjoz619628ehai/FRP_Bypass.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Android 8-9-10 App', href: 'https://www.mediafire.com/file/mhhctzb8tws676r/Android_8-9-10_GAM.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Android 5 App', href: 'https://www.mediafire.com/file/5dhzu1dqkg84r7m/Android_5_GAM.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Android 6 App', href: 'https://www.mediafire.com/file/dhbjnrnbuygf4o3/Android_6_GAM.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Android 7 App', href: 'https://www.mediafire.com/file/uv5luqcu7hg5jbv/FRP_Android_7.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Package Disabler Pro App', href: 'https://www.mediafire.com/file/soxblin6pajfl7b/Package_Disabler_Pro.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Package Disabler Pro 13.5 App', href: 'https://www.mediafire.com/file/5r9iwzjyp1vi1ca/Package_Disabler_Pro_13.5.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Smart Launcher App', href: 'https://www.mediafire.com/file/apk1qe8q5zm2o5f/Smart_Launcher.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'WiFi-Rental App', href: 'https://www.mediafire.com/file/0jgb6a1xmy5itkm/WiFi-Rental.apk/file', imgSrc: '../img/gentechserver.png' },
+            { label: 'Vivo Camera', href: 'intent://com.android.camera/#Intent;scheme=android-app;end', imgSrc: '../img/gentechserver.png' }
+        ];
+    
+        const itemsPerPage = 200;
+        let currentPage = 1;
+        let filteredData = [...buttonsData];
+        
+        function displayButtons() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = currentPage * itemsPerPage;
+            const buttonsContainer = document.getElementById('buttons-container');
+            buttonsContainer.innerHTML = '';
+        
+            filteredData.slice(start, end).forEach(button => {
+                const btnElement = document.createElement('a');
+                btnElement.className = 'button';
+                btnElement.href = button.href;
+        
+                const imgElement = document.createElement('img');
+                imgElement.src = button.imgSrc;
+                imgElement.alt = button.label;
+                imgElement.className = 'button-icon';
+        
+                const labelSpan = document.createElement('span');
+                labelSpan.textContent = button.label;
+
+                if (button.label === '' || 
+                    button.label === '' || 
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '' ||
+                    button.label === '') {
+                    labelSpan.classList.add('maintenance-button');
+                }
+        
+                btnElement.appendChild(imgElement);
+                btnElement.appendChild(labelSpan);
+        
+                buttonsContainer.appendChild(btnElement);
+            });
+        }
+        
+        function searchButtons() {
+            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
+            currentPage = 1;
+            displayButtons();
+        }
+        
+        displayButtons();
+    </script>    
+
+    <script src="js/79HK45gP0J.js"></script> 
+</body>
+</html>
