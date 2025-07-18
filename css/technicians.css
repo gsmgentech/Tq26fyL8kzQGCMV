@@ -25,6 +25,10 @@ body {
     linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
 }
 
 .admin-container {
@@ -45,7 +49,7 @@ body {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
   padding: 30px 20px;
   width: 90vw;
-  max-width: 400px; /* increased from 320px */
+  max-width: 400px;
   text-align: center;
   transition: 0.3s;
   box-sizing: border-box;
@@ -235,4 +239,84 @@ a:hover {
 .apply-card button[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+.admin-wrapper {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.description {
+  font-size: 14px;
+  color: #333;
+  background-color: #f2f2f2;
+  border-left: 4px solid #00aa55;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 480px) {
+  .description {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .admin-wrapper {
+    padding: 8px;
+  }
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  min-height: 660px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 20px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 24px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+
 
