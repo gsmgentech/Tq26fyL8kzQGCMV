@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
       role: "Admin/Technician",
       location: "PHILIPPINES | VALENZUELA",
       phone: "+639923965626",
-      image: "img/admin.png",
+      image: "../img/admin.png",
       verified: true,
       shareLink: "gentechserver.com/verified-technician/genrev",
       specialties: [
@@ -66,47 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       ]
     },
-    {
-      name: "John Mark Ibana",
-      role: "Technician",
-      location: "PHILIPPINES | MANILA",
-      phone: "+639923965667",
-      image: "img/admin2.jpg",
-      verified: true,
-      shareLink: "gentechserver.com/verified-technician/johnmark",
-      specialties: [
-        "Software Technician",
-        "Remote Bypass and Unlocking",
-        "Device Support: Laptop, Android, iPhone, Tablet",
-        "System Reformatting and OS Installation",
-        "Data Backup and Recovery Assistance",
-        "Spoken Languages: Tagalog & English",
-        "Over 2 Years of Technical Repair Experience",
-      ],
-      
-      contacts: [
-        {
-          icon: "https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg",
-          link: "https://m.me/ibanajohnmark",
-          label: "John Mark"
-        },
-        {
-          icon: "https://cdn-icons-png.flaticon.com/512/733/733547.png",
-          link: "https://www.facebook.com/ibanajohnmark",
-          label: "John Mark"
-        },
-        {
-          icon: "https://cdn-icons-png.flaticon.com/512/733/733585.png",
-          link: "https://wa.me/639923965667",
-          label: "+639923965667"
-        },
-        {
-          icon: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-          link: "https://gentechserver.com/report-technician?name=John%20Mark%20Ibana",
-          label: "Report this technician"
-        }
-      ]
-    }
   ];
 
   const adminContainer = document.getElementById("admin-container");
@@ -114,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   admins.forEach(admin => {
     const verifiedIcon = admin.verified
-      ? `<img src="img/verified.png" class="verified" />`
+      ? `<img src="../img/verified.png" class="verified" />`
       : "";
 
     const contactsHTML = admin.contacts.map(contact => `
@@ -127,14 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const specialtiesHTML = admin.specialties.map(spec => `<li>${spec}</li>`).join("");
 
     const shareIconHTML = `
-      <img src="img/share.png"
+      <img src="../img/share.png"
            class="share-icon"
            alt="Share"
            onclick="copyLink('${admin.shareLink}')">
     `;
 
     const flipIconHTML = `
-      <img src="img/flip.png"
+      <img src="../img/flip.png"
            class="flip-icon"
            alt="Flip"
            onclick="toggleDetails(this)">
