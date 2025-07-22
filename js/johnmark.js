@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           icon: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-          link: "https://gentechserver.com/report-technician?name=John%20Mark%20Ibana",
+          link: "",
           label: "Report this technician"
         }
       ]

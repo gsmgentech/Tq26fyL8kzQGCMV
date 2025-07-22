@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-          link: "https://www.google.com/maps?q=14.686386837250003,120.96592898251723",
+          link: "",
           label: "Shop Location"
         },
         {
           icon: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-          link: "https://gentechserver.com/report-technician?name=Genrev%20Samonte",
+          link: "",
           label: "Report this technician"
         }
       ]
