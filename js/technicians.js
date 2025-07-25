@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "Dead Boot and No Power Diagnosis",
         "Custom ROM Flashing / Stock Firmware Restoration",
         "Spoken Languages: Tagalog & English",
-        "Payment Methods: GCash, Maya, Cash on Site",
         "Over 5 Years of Technical Repair Experience",
       ],
 
