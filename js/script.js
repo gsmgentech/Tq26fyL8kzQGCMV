@@ -99,7 +99,6 @@ if (logo) {
 }
 
 const openScannerBtn = document.getElementById('openScanner');
-const stopScannerBtn = document.getElementById('stopScanner');
 const closeScannerBtn = document.getElementById('closeScanner');
 const scanSection = document.getElementById('scan-qr');
 const qrResult = document.getElementById('qr-result');
@@ -168,10 +167,6 @@ function stopScanner() {
 openScannerBtn.addEventListener('click', () => {
   showScanSection(true);
   startScanner();
-});
-
-stopScannerBtn.addEventListener('click', () => {
-  stopScanner();
 });
 
 closeScannerBtn.addEventListener('click', () => {
