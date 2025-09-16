@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FRP</title>
+    <link rel="website icon" href="img/logo.png">
+    <style>
+        body {
+            font-family: 'Arial';
+            background: #121212;
+            margin: 0;
+        }
+
+        .box {
+            background: none;
+            color: #50C878;
+            max-width: 310px;
+            height: 100%;
+            border-radius: 20px;
+            border: 3px solid #00aaff;
+            padding: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 0.3s;
+            text-align: center;
+            min-height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-top: 25px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        h1 {
+            color: #00aaff;
+            margin: 0;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background: #00aaff;
+            color: white;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .nav-button:disabled {
+            background: #333;
+            cursor: not-allowed;
+        }
+
+        .button {
+            background: rgba(62, 66, 66, 0.3);
+            border: 1px solid #00aaff;
+            border-radius: 7px;
+            background: #00aaff;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 99%;
+            height: 25px;
+            margin-bottom: 0px;
+            border-width: 2px;
+            padding-top: 8px;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background: #0055aa;
+        }
+
+        .button:active {
+            background-color: #0055aa;
+        }
+
+        #search-box {
+            width: 93%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: 2px solid #00aaff;
+            border-radius: 5px;
+            color: #40E0D0;
+            background-color: #121212;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body> 
+    <div class="box">
+        <div class="header">
+            <h1>FRP</h1>
+            <div class="nav-buttons">
+                <button class="nav-button" id="prev-btn" onclick="prevPage()" disabled>◄</button>
+                <button class="nav-button" id="next-btn" onclick="nextPage()">►</button>
+            </div>
+        </div>
+        <input type="text" id="search-box" placeholder="sᴇᴀʀᴄʜ" onkeyup="searchButtons()">
+        <div id="buttons-container"></div>
+    </div>
+
+    <script>
+        const buttonsData = [
+            { label: 'Setting', href: 'intent://com.android.settings/#Intent;scheme=android-app;end' },
+            { label: 'Dial Pad', href: 'tel:' },
+            { label: 'ADB Settings', href: 'intent://com.sec.android.app.modemui.activities.USB.settings/#Intent;scheme=android-app;end' },
+            { label: 'USB Settings', href: 'intent://com.sec.android.app.servicemodeapp/#Intent;scheme=promote_USBSettings_scheme;end' },
+            { label: 'Screen SmartLock', href: 'intent://com.google.android.gms/#Intent;scheme=promote_smartlock_scheme;end' },
+            { label: 'Google Assistant', href: 'intent://com.google.android.apps.googleassistant/#Intent;scheme=android-app;end' },
+            { label: 'Gmail', href: 'intent://com.google.android.gm/#Intent;scheme=android-app;end' },
+            { label: 'Youtube', href: 'intent://com.google.android.youtube/#Intent;scheme=android-app;end' },
+            { label: 'Google Map', href: 'intent://com.google.android.apps.maps/#Intent;scheme=android-app;end%22%3E' },
+            { label: 'Google Chrome', href: 'intent://com.android.chrome/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Dial Pad', href: 'intent://com.samsung.android.dialer/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Calculator', href: 'intent://com.sec.android.app.popupcalculator/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Smart Switch', href: 'intent://com.sec.android.easyMover/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Home Launcher', href: 'intent://com.sec.android.app.launcher/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Secure Folder', href: 'intent://com.samsung.knox.securefolder/#Intent;scheme=android-app;end' },
+            { label: 'Samsung File Manager', href: 'intent://com.sec.android.app.myfiles/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Galaxy Store', href: 'https://www.samsung.com/fr/apps/galaxy-store/' },
+            { label: 'Samsung Samsung  S9Launcher', href: 'https://galaxystore.samsung.com/detail/com.s9launcher.dir.launcher' },
+            { label: 'Samsung Touch iD', href: 'intent://com.android.settings/com.samsung.android.settings.biometrics.fingerprint.FingerprintEntry/#Intent;scheme=android-app;end' },
+            { label: 'Samsung Login Account', href: 'intent://com.google.android.gsf.login.LoginActivity/#Intent;scheme=android-app;end' },
+            { label: 'Infinix AI Gallery', href: 'intent://com.gallery20/#Intent;scheme=android-app;end' },
+            { label: 'Infinix Phone Master', href: 'intent://com.transsion.phonemaster/#Intent;scheme=android-app;end' },
+            { label: 'Infinix File Manager', href: 'intent://com.transsion.filemanagerx/#Intent;scheme=android-app;end' },
+            { label: 'Infinix XArena', href: 'intent://com.transsion.gamespace.app/#Intent;scheme=android-app;end' },
+            { label: 'Infinix Camera', href: 'intent://com.transsion.camera/#Intent;scheme=android-app;end' },
+            { label: 'Infinix Smart Panel', href: 'intent://com.transsion.smartpanel/#Intent;scheme=android-app;end' },
+            { label: 'Palm Store', href: 'intent://com.transsnet.store/#Intent;scheme=android-app;end' },
+            { label: 'Smart Launcher', href: 'intent://ginlemon.flowerfree/#Intent;scheme=android-app;end' },
+            { label: 'Activity Launcher', href: 'intent://de.szalkowski.activitylauncher/#Intent;scheme=android-app;end' },
+            { label: 'OPPO Clone Phone', href: 'intent://com.coloros.backuprestore/#Intent;scheme=android-app;end' },
+            { label: 'Google Play Store', href: 'intent://com.android.vending/#Intent;scheme=android-app;end' },
+            { label: 'Activity Launcher App', href: 'https://www.mediafire.com/file/nn9i1b8xg99vds5/activitylauncher.apk/file' },
+            { label: 'FRP Bypass App', href: 'https://www.mediafire.com/file/tdjoz619628ehai/FRP_Bypass.apk/file' },
+            { label: 'Android 8-9-10 App', href: 'https://www.mediafire.com/file/mhhctzb8tws676r/Android_8-9-10_GAM.apk/file' },
+            { label: 'Android 5 App', href: 'https://www.mediafire.com/file/5dhzu1dqkg84r7m/Android_5_GAM.apk/file' },
+            { label: 'Android 6 App', href: 'https://www.mediafire.com/file/dhbjnrnbuygf4o3/Android_6_GAM.apk/file' },
+            { label: 'Android 7 App', href: 'https://www.mediafire.com/file/uv5luqcu7hg5jbv/FRP_Android_7.apk/file' },
+            { label: 'Package Disabler Pro App', href: 'https://www.mediafire.com/file/soxblin6pajfl7b/Package_Disabler_Pro.apk/file' },
+            { label: 'Package Disabler Pro 13.5 App', href: 'https://www.mediafire.com/file/5r9iwzjyp1vi1ca/Package_Disabler_Pro_13.5.apk/file' },
+            { label: 'Smart Launcher App', href: 'https://www.mediafire.com/file/apk1qe8q5zm2o5f/Smart_Launcher.apk/file' },
+            { label: 'WiFi-Rental App', href: 'https://www.mediafire.com/file/0jgb6a1xmy5itkm/WiFi-Rental.apk/file' },
+            { label: 'Vivo Camera', href: 'intent://com.android.camera/#Intent;scheme=android-app;end' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+            { label: 'XXXXX', href: 'XXXXX' },
+        ];
+
+
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        let filteredData = [...buttonsData]; // A copy of the original data for filtering
+
+        function displayButtons() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = currentPage * itemsPerPage;
+            const buttonsContainer = document.getElementById('buttons-container');
+            buttonsContainer.innerHTML = '';
+
+            filteredData.slice(start, end).forEach(button => {
+                const btnElement = document.createElement('a');
+                btnElement.className = 'button';
+                btnElement.href = button.href;
+                btnElement.textContent = button.label;
+                buttonsContainer.appendChild(btnElement);
+            });
+
+            document.getElementById('prev-btn').disabled = currentPage === 1;
+            document.getElementById('next-btn').disabled = currentPage === Math.ceil(filteredData.length / itemsPerPage);
+        }
+
+        function nextPage() {
+            if (currentPage < Math.ceil(filteredData.length / itemsPerPage)) {
+                currentPage++;
+                displayButtons();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayButtons();
+            }
+        }
+
+        function searchButtons() {
+            const searchTerm = document.getElementById('search-box').value.toLowerCase();
+            filteredData = buttonsData.filter(button => button.label.toLowerCase().includes(searchTerm));
+            currentPage = 1; // Reset to the first page on search
+            displayButtons();
+        }
+
+        // Initial load
+        displayButtons();
+    </script>
+</body>
+</html>
