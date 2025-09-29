@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samsung QR Code | GTServer</title>
+  <title>Samsung QR Codes | GTServer</title>
   <link rel="website icon" href="img/logo.png">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
   <style>
     html, body {
       margin: 0;
@@ -32,15 +33,23 @@
       width: 100%;
       text-align: center;
       gap: 20px;
+      padding-top: 50px; /* space between header and h1 */
+      padding-bottom: 40px; /* space between last image and footer */
     }
 
     h1 {
       color: #fff;
-      margin: 0;
+      margin: 0 0 20px 0; /* add some space below heading */
       opacity: 0;
       transform: translateY(30px);
       animation: fadeSlideIn 1s forwards;
       animation-delay: 0.2s;
+    }
+
+    p {
+      color: #fff;
+      margin: 0 0 10px 0;
+      font-size: 1.1rem;
     }
 
     img {
@@ -51,7 +60,6 @@
       opacity: 0;
       transform: translateY(30px);
       animation: fadeSlideIn 1s forwards;
-      animation-delay: 0.5s;
     }
 
     @keyframes fadeSlideIn {
@@ -70,12 +78,21 @@
   <header></header>
 
   <main>
-    <h1>Samsung QR Code V1</h1>
-    <img src="img/samsungqr.jpg" alt="Samsung QR Code">
+    <h1>Samsung QR Codes</h1>
+
+    <p>ADB Enable Android 13</p>
+    <img id="qr1" src="img/samsungqrandroid13.png" alt="Samsung QR Code Android 13" style="animation-delay: 0.5s;">
+
+    <p>ADB Enable Android 14 v1</p>
+    <img id="qr2" src="img/samsungqrandroid14v1.png" alt="Samsung QR Code Android 14 v1" style="animation-delay: 0.7s;">
+
+    <p>ADB Enable Android 14 v2</p>
+    <img id="qr3" src="img/samsungqrandroid14v2.png" alt="Samsung QR Code Android 14 v2" style="animation-delay: 0.9s;">
   </main>
 
   <footer></footer>
 
   <script type="module" src="js/layout.js"></script>
+  <script src="js/scrollFix.js"></script>
 </body>
 </html>
