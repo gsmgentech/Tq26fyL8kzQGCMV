@@ -10,7 +10,7 @@ export function loadLayout() {
           <li><a href="imei-service">IMEI Service</a></li>
           <li><a href="tool-rental">Tool Rentals</a></li>
           <li><a href="remote-service">Remote Service</a></li>
-          <li><a href="samsung-qr">Samsung QR Code</a></li>
+          <li><a href="samsungqr">Samsung QR Code</a></li>
           <li><a href="index#contact">Contact</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
