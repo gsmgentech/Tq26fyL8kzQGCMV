@@ -1,1 +1,179 @@
-const hamburger=document.querySelector(".hamburger"),navLinks=document.querySelector(".nav-links"),navOverlay=document.querySelector(".nav-overlay"),navItems=document.querySelectorAll(".nav-links a"),logo=document.querySelector(".logo");function closeMenu(){navLinks.classList.remove("active"),hamburger.classList.remove("active"),navOverlay.classList.remove("active")}async function searchRecord(e){e.preventDefault();let t=document.getElementById("recordNumber").value.trim(),n=document.getElementById("message");if(n.textContent="",n.classList.remove("show"),t){let r="service-record/"+encodeURIComponent(t)+".html";try{let a=await fetch(r,{method:"HEAD"});a.ok?window.location.href=r:showMessage("⚠️ No service record found.")}catch(c){showMessage("⚠️ No service record found.")}}}function showMessage(e){let t=document.getElementById("message");t.textContent=e,t.classList.add("show"),setTimeout(()=>{t.classList.remove("show"),setTimeout(()=>{t.textContent=""},800)},3e3)}hamburger.addEventListener("click",()=>{navLinks.classList.toggle("active"),hamburger.classList.toggle("active"),navOverlay.classList.toggle("active")}),navOverlay.addEventListener("click",()=>{closeMenu()}),navItems.forEach(e=>{e.addEventListener("click",()=>{closeMenu()})});const animatedElements=document.querySelectorAll("[data-animate]"),observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("animated"),"fade-up"===e.target.dataset.animate?e.target.style.animation="fadeUp 1s forwards":"zoom-in"===e.target.dataset.animate&&(e.target.style.animation="zoomIn 1s forwards"),observer.unobserve(e.target))})},{threshold:.2});animatedElements.forEach(e=>observer.observe(e));let clickCount=0,clickTimer;const clickWindowMs=3e3,requiredClicks=5,redirectUrl="UuLxeqUTlswEXfHIWpvxSoljzDQnpnkwntEJjddRnkOXLYUulN";function registerLogoClick(){clickCount+=1,clearTimeout(clickTimer),clickTimer=setTimeout(()=>{clickCount=0},3e3),clickCount>=5&&(clickCount=0,window.location.href="UuLxeqUTlswEXfHIWpvxSoljzDQnpnkwntEJjddRnkOXLYUulN")}logo&&(logo.addEventListener("click",registerLogoClick),logo.addEventListener("touchstart",registerLogoClick));const openScannerBtn=document.getElementById("openScanner"),closeScannerBtn=document.getElementById("closeScanner"),scanSection=document.getElementById("scan-qr"),qrResult=document.getElementById("qr-result");let html5QrCode,scannerRunning=!1;function showScanSection(e){scanSection.setAttribute("aria-hidden",e?"false":"true"),scanSection.style.display=e?"block":"none"}function onScanSuccess(e){if(qrResult.textContent="Scanned: "+e,e.startsWith("http://")||e.startsWith("https://")){window.location.href=e,stopScanner();return}let t="service-record/"+encodeURIComponent(e)+".html";fetch(t,{method:"HEAD"}).then(n=>{n.ok?(stopScanner(),window.location.href=t):qrResult.textContent="No matching service record found for: "+e}).catch(()=>{qrResult.textContent="No matching service record found for: "+e})}function onScanFailure(e){}function startScanner(){if(!scannerRunning){if(!window.Html5Qrcode){qrResult.textContent="QR library not loaded.";return}(html5QrCode=new Html5Qrcode("reader")).start({facingMode:"environment"},{fps:10,qrbox:{width:280,height:280}},onScanSuccess,onScanFailure).then(()=>{scannerRunning=!0,qrResult.textContent="Scanning... point camera at QR code."}).catch(e=>{qrResult.textContent="Camera error: "+e})}}function stopScanner(){scannerRunning&&html5QrCode&&html5QrCode.stop().then(()=>{html5QrCode.clear(),scannerRunning=!1,qrResult.textContent=""}).catch(()=>{scannerRunning=!1})}openScannerBtn.addEventListener("click",()=>{showScanSection(!0),startScanner()}),closeScannerBtn.addEventListener("click",()=>{stopScanner(),showScanSection(!1)}),document.addEventListener("visibilitychange",()=>{document.hidden&&stopScanner()});
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const navOverlay = document.querySelector(".nav-overlay");
+const navItems = document.querySelectorAll(".nav-links a");
+const logo = document.querySelector('.logo');
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active");
+  navOverlay.classList.toggle("active");
+});
+
+navOverlay.addEventListener("click", () => {
+  closeMenu();
+});
+
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+    closeMenu();
+  });
+});
+
+function closeMenu() {
+  navLinks.classList.remove("active");
+  hamburger.classList.remove("active");
+  navOverlay.classList.remove("active");
+}
+
+async function searchRecord(event) {
+  event.preventDefault();
+  const recordNumber = document.getElementById("recordNumber").value.trim();
+  const messageBox = document.getElementById("message");
+  messageBox.textContent = "";
+  messageBox.classList.remove("show");
+
+  if (recordNumber) {
+    const filePath = "service-record/" + encodeURIComponent(recordNumber) + ".html";
+    try {
+      const response = await fetch(filePath, { method: "HEAD" });
+      if (response.ok) {
+        window.location.href = filePath;
+      } else {
+        showMessage("⚠️ No service record found.");
+      }
+    } catch (error) {
+      showMessage("⚠️ No service record found.");
+    }
+  }
+}
+
+function showMessage(text) {
+  const messageBox = document.getElementById("message");
+  messageBox.textContent = text;
+  messageBox.classList.add("show");
+  setTimeout(() => {
+    messageBox.classList.remove("show");
+    setTimeout(() => {
+      messageBox.textContent = "";
+    }, 800);
+  }, 3000);
+}
+
+const animatedElements = document.querySelectorAll("[data-animate]");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animated");
+      if (entry.target.dataset.animate === "fade-up") {
+        entry.target.style.animation = "fadeUp 1s forwards";
+      } else if (entry.target.dataset.animate === "zoom-in") {
+        entry.target.style.animation = "zoomIn 1s forwards";
+      }
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+animatedElements.forEach(el => observer.observe(el));
+
+let clickCount = 0;
+let clickTimer;
+const clickWindowMs = 3000;
+const requiredClicks = 5;
+const redirectUrl = 'admin.html';
+
+function registerLogoClick() {
+  clickCount += 1;
+  clearTimeout(clickTimer);
+  clickTimer = setTimeout(() => { clickCount = 0; }, clickWindowMs);
+  if (clickCount >= requiredClicks) {
+    clickCount = 0;
+    window.location.href = redirectUrl;
+  }
+}
+
+if (logo) {
+  logo.addEventListener('click', registerLogoClick);
+  logo.addEventListener('touchstart', registerLogoClick);
+}
+
+const openScannerBtn = document.getElementById('openScanner');
+const closeScannerBtn = document.getElementById('closeScanner');
+const scanSection = document.getElementById('scan-qr');
+const qrResult = document.getElementById('qr-result');
+let html5QrCode;
+let scannerRunning = false;
+
+function showScanSection(show) {
+  scanSection.setAttribute('aria-hidden', show ? 'false' : 'true');
+  scanSection.style.display = show ? 'block' : 'none';
+}
+
+function onScanSuccess(decodedText) {
+  qrResult.textContent = 'Scanned: ' + decodedText;
+  if (decodedText.startsWith('http://') || decodedText.startsWith('https://')) {
+    window.location.href = decodedText;
+    stopScanner();
+    return;
+  }
+  const maybeFile = 'service-record/' + encodeURIComponent(decodedText) + '.html';
+  fetch(maybeFile, { method: 'HEAD' })
+    .then(r => {
+      if (r.ok) {
+        stopScanner();
+        window.location.href = maybeFile;
+      } else {
+        qrResult.textContent = 'No matching service record found for: ' + decodedText;
+      }
+    })
+    .catch(() => {
+      qrResult.textContent = 'No matching service record found for: ' + decodedText;
+    });
+}
+
+function onScanFailure(error) {
+}
+
+function startScanner() {
+  if (scannerRunning) return;
+  if (!window.Html5Qrcode) {
+    qrResult.textContent = 'QR library not loaded.';
+    return;
+  }
+  const config = { fps: 10, qrbox: { width: 280, height: 280 } };
+  html5QrCode = new Html5Qrcode("reader");
+  html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess, onScanFailure)
+    .then(() => {
+      scannerRunning = true;
+      qrResult.textContent = 'Scanning... point camera at QR code.';
+    })
+    .catch(err => {
+      qrResult.textContent = 'Camera error: ' + err;
+    });
+}
+
+function stopScanner() {
+  if (!scannerRunning || !html5QrCode) return;
+  html5QrCode.stop().then(() => {
+    html5QrCode.clear();
+    scannerRunning = false;
+    qrResult.textContent = '';
+  }).catch(() => {
+    scannerRunning = false;
+  });
+}
+
+openScannerBtn.addEventListener('click', () => {
+  showScanSection(true);
+  startScanner();
+});
+
+closeScannerBtn.addEventListener('click', () => {
+  stopScanner();
+  showScanSection(false);
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopScanner();
+});
