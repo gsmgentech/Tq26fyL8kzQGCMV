@@ -14,13 +14,6 @@
       background: linear-gradient(135deg, #0d0d0d, #1a1a1a 60%, #121212);
       color: #fff;
     }
-    header {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
     h1 {
       margin: 0;
       color: #00aaff;
@@ -76,11 +69,84 @@
       h1 { font-size: 1.4rem; }
       .material-icons { font-size: 36px; }
     }
+    header {
+      background: #0f1624;
+      color: #fff;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #0f1624;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      display: flex;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .nav-links.active {
+      right: 0;
+    }
+    .nav-links li {
+      list-style: none;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: #1abc9c;
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 4px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>FRP Tools</h1>
+    <nav class="navbar">
+      <div class="logo">GENTECHSERVER</div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
   </header>
   <div class="container" id="categories-container"></div>
   <script>
