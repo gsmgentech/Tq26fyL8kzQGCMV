@@ -7,9 +7,9 @@ export function loadLayout() {
           <li><a href="index#home">Home</a></li>
           <li><a href="index#services">Services</a></li>
           <li><a href="frp">APK & FRP</a></li>
-          <li><a href="imei">IMEI Bypass</a></li>
-          <li><a href="rent">Tool Rentals</a></li>
-          <li><a href="remote-bypass">Remote Bypass</a></li>
+          <li><a href="imei-service">IMEI Service</a></li>
+          <li><a href="tool-rental">Tool Rentals</a></li>
+          <li><a href="remote-service">Remote Service</a></li>
           <li><a href="index#contact">Contact</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
