@@ -240,3 +240,59 @@ body {
   position: static !important;
   top: auto !important;
 }
+
+h1 {
+      margin: 0;
+      color: #00aaff;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .category {
+      margin-bottom: 35px;
+    }
+    .category h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #50C878;
+      border-left: 4px solid #00aaff;
+      padding-left: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 170, 255, 0.4);
+      border-radius: 16px;
+      text-align: center;
+      padding: 25px 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 18px rgba(0, 170, 255, 0.4);
+      border-color: #00aaff;
+    }
+    .material-icons {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.4rem; }
+      .material-icons { font-size: 36px; }
+    }

@@ -6,8 +6,10 @@ export function loadLayout() {
         <ul class="nav-links">
           <li><a href="index#home">Home</a></li>
           <li><a href="index#services">Services</a></li>
-          <li><a href="frp.html">APK & FRP</a></li>
-          <li><a href="index#about">About</a></li>
+          <li><a href="frp">APK & FRP</a></li>
+          <li><a href="imei">IMEI Bypass</a></li>
+          <li><a href="rent">Tool Rentals</a></li>
+          <li><a href="remote-bypass">Remote Bypass</a></li>
           <li><a href="index#contact">Contact</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
@@ -48,7 +50,7 @@ export function initHeaderFunctions() {
   let clickTimer;
   const clickWindowMs = 3000;
   const requiredClicks = 5;
-  const redirectUrl = "admin.html";
+  const redirectUrl = "login";
 
   function registerLogoClick() {
     clickCount++;
