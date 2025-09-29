@@ -21,26 +21,15 @@
   <meta name="twitter:image" content="https://www.gentechserver.com/img/gentechserver.png">
 
   <link rel="icon" href="icons/logo.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/html5-qrcode" defer></script>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">GENTECHSERVER</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-    </nav>
-  </header>
+  <header></header>
 
   <div class="nav-overlay"></div>
-
   <div id="loadingSpinner" class="spinner" style="display:none"></div>
 
   <section class="hero" id="home">
@@ -59,38 +48,79 @@
   </section>
 
   <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="card" data-animate="fade-up">
-        <h3>Board-Level Repair</h3>
-        <p>Expert solutions for complex hardware issues.</p>
-      </div>
-      <div class="card" data-animate="fade-up">
-        <h3>Software Updates</h3>
-        <p>Stay updated with the latest system enhancements.</p>
-      </div>
-      <div class="card" data-animate="fade-up">
-        <h3>Diagnostics</h3>
-        <p>Accurate checks to find problems quickly.</p>
-      </div>
-      <div class="card" data-animate="fade-up">
-        <h3>Data Recovery</h3>
-        <p>Recover your lost files and valuable data.</p>
-      </div>
-      <div class="card" data-animate="fade-up">
-        <h3>Battery Replacement</h3>
-        <p>High-quality replacement for longer device life.</p>
-      </div>
-      <div class="card" data-animate="fade-up">
-        <h3>Water Damage Repair</h3>
-        <p>Specialized treatment to save liquid-damaged devices.</p>
+    <div class="container">
+      <header class="services-header" data-animate="fade-up">
+        <h2>Our Services</h2>
+        <p class="lead">Professional repair, unlock, and recovery services — fast diagnostics, board-level fixes, and expert software solutions. Transparent pricing and honest advice, every step of the way.</p>
+      </header>
+
+      <div class="service-cards">
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-diagnostics">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="6"/></svg>
+          </div>
+          <h3 id="svc-diagnostics">Diagnostics</h3>
+          <p class="desc">Comprehensive hardware and software checks — quick pinpointing of faults, clear repair recommendations, and an itemized fault report so you know exactly what's wrong.</p>
+          <div class="meta">Turnaround: <strong>Same day / 24–48 hrs</strong></div>
+          <a class="card-cta" href="#contact" aria-label="Contact for Diagnostics">Get quote</a>
+        </article>
+
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-board">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M8 21v-4"/><path d="M16 21v-4"/></svg>
+          </div>
+          <h3 id="svc-board">Board-Level Repair</h3>
+          <p class="desc">Micro-soldering, component-level replacement, BGA reflow and circuit-level diagnostics — for devices that other shops consider 'beyond repair'. We specialize in salvage-first solutions.</p>
+          <div class="meta">Warranty: <strong>30 days</strong> on repairs</div>
+          <a class="card-cta" href="#contact" aria-label="Contact for Board-Level Repair">Book repair</a>
+        </article>
+
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-frp">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11a8 8 0 1 1 8 8"/><path d="M21 21v-6l-4-4-4 4"/></svg>
+          </div>
+          <h3 id="svc-frp">FRP / Bypass Services</h3>
+          <p class="desc">Professional, remote-friendly FRP bypass for supported models. We follow ethical and legal guidelines — bring proof of ownership when requesting bypass services.</p>
+          <div class="meta">Note: <strong>ID required</strong> for device ownership verification</div>
+          <a class="card-cta" href="#contact" aria-label="Contact for FRP Bypass">Inquire now</a>
+        </article>
+
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-icloud">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 18a5 5 0 1 1 10 0"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
+          </div>
+          <h3 id="svc-icloud">iCloud Solutions</h3>
+          <p class="desc">Assistance for iCloud activation-related issues where lawful — diagnostics and options explained clearly. We never support theft or unauthorized access.</p>
+          <div class="meta">Compliance: <strong>Legal verification required</strong></div>
+          <a class="card-cta" href="#contact" aria-label="Contact for iCloud Solutions">Ask about options</a>
+        </article>
+
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-unlock">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 18h.01"/><path d="M7 13a5 5 0 0 1 0 7"/><path d="M12 8a9 9 0 0 1 0 13"/></svg>
+          </div>
+          <h3 id="svc-unlock">Network Unlock</h3>
+          <p class="desc">Carrier unlocks for supported models — permanent, safe, and tested. We check IMEI compatibility and explain any risks before proceeding.</p>
+          <div class="meta">Service level: <strong>Permanent unlock</strong> when available</div>
+          <a class="card-cta" href="#contact" aria-label="Contact for Network Unlock">Start unlock</a>
+        </article>
+
+        <article class="card" data-animate="fade-up" aria-labelledby="svc-tools">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 7h20"/><rect x="3" y="7" width="18" height="10" rx="2"/></svg>
+          </div>
+          <h3 id="svc-tools">Tool Rentals</h3>
+          <p class="desc">Rent specialized repair tools and software licenses by the day — JTAG boxes, flash tools, and diagnostic equipment. Perfect for techs who need short-term access to pro gear.</p>
+          <div class="meta">Availability: <strong>By reservation</strong></div>
+          <a class="card-cta" href="#contact" aria-label="Contact for Tool Rentals">Reserve tool</a>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="stats">
     <div class="stat" data-animate="zoom-in">
-      <h3 id="counter1">3,000+</h3>
+      <h3 id="counter1">5,000+</h3>
       <p>Devices Repaired</p>
     </div>
     <div class="stat" data-animate="zoom-in">
@@ -110,8 +140,7 @@
 
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Email: Gentechserver@gmail.com</p>
-    <p>Phone: +63 992 396 5626</p>
+    <p>Email: gentechserver@gmail.com</p>
   </section>
 
   <section id="scan-qr" class="qr-section" aria-hidden="true">
@@ -130,10 +159,9 @@
     </svg>
   </a>
 
-  <footer>
-    <p>© 2025 GENTECHSERVER. All Rights Reserved.</p>
-  </footer>
+  <footer></footer>
 
+  <script type="module" src="js/layout.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
