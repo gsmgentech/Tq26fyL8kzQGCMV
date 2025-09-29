@@ -4,11 +4,11 @@ export function loadLayout() {
       <nav class="navbar">
         <div class="logo">GENTECHSERVER</div>
         <ul class="nav-links">
-          <li><a href="index#home">Home</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="frp.html">APK & FRP</a></li>
-          <li><a href="index#about">About</a></li>
-          <li><a href="index#contact">Contact</a></li>
+          <li><a href="gentechserver.com/#home">Home</a></li>
+          <li><a href="gentechserver.com/#services">Services</a></li>
+          <li><a href="gentechserver.com/frp">APK & FRP</a></li>
+          <li><a href="gentechserver.com/#about">About</a></li>
+          <li><a href="gentechserver.com/#contact">Contact</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
       </nav>
