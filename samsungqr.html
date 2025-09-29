@@ -1,46 +1,82 @@
-<!doctype html>
-<html lang="tl">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Responsive Full Image</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung QR Code | GTServer</title>
+  <link rel="website icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
   <style>
     html, body {
-      height: 100%;
       margin: 0;
-      background: #000;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    .view {
-      width: 100vw;
-      height: 100vh;
+    body {
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a 60%, #121212);
+      align-items: center;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    main {
+      flex: 1;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      text-align: center;
+      gap: 20px;
     }
 
-    .view img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      object-position: center;
-      user-select: none;
-      -webkit-user-drag: none;
-      display: block;
+    h1 {
+      color: #fff;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.2s;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header, footer {
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <div class="view">
-    <img id="mainImage" src="img/samsungqr.jpg" alt="Responsive Image" />
-  </div>
+  <header></header>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const qImg = params.get('img');
-    if (qImg) {
-      document.getElementById('mainImage').src = qImg;
-    }
-  </script>
+  <main>
+    <h1>Samsung QR Code V1</h1>
+    <img src="img/samsungqr.jpg" alt="Samsung QR Code">
+  </main>
+
+  <footer></footer>
+
+  <script type="module" src="js/layout.js"></script>
+  <script src="js/categories.js"></script>
 </body>
 </html>
