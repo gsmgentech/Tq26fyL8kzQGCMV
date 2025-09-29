@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samsung QR Codes | GTServer</title>
+  <title>IMEI Service | GTServer</title>
   <link rel="website icon" href="img/logo.png">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/style.css">
@@ -20,46 +20,51 @@
 
     body {
       background: linear-gradient(135deg, #0d0d0d, #1a1a1a 60%, #121212);
-      align-items: center;
       font-family: 'Rajdhani', sans-serif;
+    }
+
+    header, footer {
+      width: 100%;
     }
 
     main {
       flex: 1;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      width: 100%;
+      align-items: center;  
+      flex-direction: column;
       text-align: center;
-      gap: 20px;
-      padding-top: 50px;
-      padding-bottom: 40px;
+      padding: 20px;
     }
 
     h1 {
       color: #fff;
-      margin: 0 0 20px 0;
+      font-size: clamp(2rem, 8vw, 6rem);
+      margin: 0 0 10px 0;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeSlideIn 1s forwards;
       animation-delay: 0.2s;
     }
 
-    .qr-label {
-      color: #fff;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+    h2 {
+      color: #ccc;
+      margin: 0 0 20px 0;
+      font-size: clamp(1rem, 4vw, 2rem);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.4s;
     }
 
-    img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    .message {
+      color: #fff;
+      max-width: 600px;
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       animation: fadeSlideIn 1s forwards;
+      animation-delay: 0.6s;
     }
 
     @keyframes fadeSlideIn {
@@ -68,31 +73,21 @@
         transform: translateY(0);
       }
     }
-
-    header, footer {
-      width: 100%;
-    }
   </style>
 </head>
 <body>
   <header></header>
 
   <main>
-    <h1>Samsung QR Codes</h1>
-
-    <div class="qr-label">ADB Enable Android 13</div>
-    <img id="qr1" src="img/samsungqrandroid13.png" alt="Samsung QR Code Android 13" style="animation-delay: 0.5s;">
-
-    <div class="qr-label">For Enable Android 14 v1</div>
-    <img id="qr2" src="img/samsungqrandroid14v1.png" alt="Samsung QR Code Android 14 v1" style="animation-delay: 0.7s;">
-
-    <div class="qr-label">For Enable Android 14 v2</div>
-    <img id="qr3" src="img/samsungqrandroid14v2.png" alt="Samsung QR Code Android 14 v2" style="animation-delay: 0.9s;">
+    <h1>Under Maintenance</h1>
+    <h2>IMEI Service Portal</h2>
+    <div class="message">
+      Our IMEI service is currently undergoing maintenance. We are working to bring you a faster, more secure experience. Please check back soon.
+    </div>
   </main>
 
   <footer></footer>
 
   <script type="module" src="js/layout.js"></script>
-  <script src="js/scrollFix.js"></script>
 </body>
 </html>
