@@ -4,14 +4,14 @@ export function loadLayout() {
       <nav class="navbar">
         <div class="logo">GENTECHSERVER</div>
         <ul class="nav-links">
-          <li><a href="index#home">Home</a></li>
-          <li><a href="index#services">Services</a></li>
-          <li><a href="frp">APK & FRP</a></li>
-          <li><a href="imei-service">IMEI Service</a></li>
-          <li><a href="tool-rental">Tool Rentals</a></li>
-          <li><a href="remote-service">Remote Service</a></li>
-          <li><a href="samsungqr">Samsung QR Code</a></li>
-          <li><a href="index#contact">Contact</a></li>
+          <li><a href="https://www.gentechserver.com/Home">Home</a></li>
+          <li><a href="https://www.gentechserver.com/#services">Services</a></li>
+          <li><a href="https://www.gentechserver.com/frp">APK & FRP</a></li>
+          <li><a href="https://www.gentechserver.com/imei-service">IMEI Service</a></li>
+          <li><a href="https://www.gentechserver.com/tool-rental">Tool Rentals</a></li>
+          <li><a href="https://www.gentechserver.com/remote-service">Remote Service</a></li>
+          <li><a href="https://www.gentechserver.com/samsungqr">Samsung QR Code</a></li>
+          <li><a href="https://www.gentechserver.com/#contact">Contact</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
       </nav>
