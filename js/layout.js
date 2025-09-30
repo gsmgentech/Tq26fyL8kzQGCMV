@@ -4,7 +4,7 @@ export function loadLayout() {
       <nav class="navbar">
         <div class="logo">GENTECHSERVER</div>
         <ul class="nav-links">
-          <li><a href="https://www.gentechserver.com/#Home">Home</a></li>
+          <li><a href="https://www.gentechserver.com">Home</a></li>
           <li><a href="https://www.gentechserver.com/#services">Services</a></li>
           <li><a href="https://www.gentechserver.com/frp">APK & FRP</a></li>
           <li><a href="https://www.gentechserver.com/imei-service">IMEI Service</a></li>
