@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Remote Instructions | GTServer</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: linear-gradient(135deg,#0d0d0d,#121212 60%);
+      --muted: #9aa4b2;
+      --accent: #3b82f6;
+      font-family: 'Rajdhani', sans-serif;
+      color-scheme: dark;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+    }
+
+    main{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      padding:15px;
+    }
+
+    .container{
+      max-width:1100px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(1.4rem,4vw,2.2rem);
+      line-height:1.2;
+    }
+
+    h2{
+      margin:6px 0 0 0;
+      font-size:clamp(0.95rem,2.6vw,1.1rem);
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .content{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .row{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+    }
+
+    .left, .right{
+      width:100%;
+      max-width:600px;
+    }
+
+    p.note{color:var(--muted);margin:6px 0;font-size:0.96rem}
+    ol, ul{margin:8px 0 12px 18px;color:var(--muted);text-align:left;display:inline-block}
+    .small{font-size:0.88rem;color:var(--muted)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:8px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      width:100%;
+      max-width:300px;
+      margin:auto;
+    }
+
+    .download-row{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    a.btn:focus{
+      outline:3px solid rgba(59,130,246,0.25);
+      outline-offset:2px;
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="left">
+            <h1>Remote Support — USB Redirect</h1>
+            <h2>Remote bypass / remote service instructions (customer consent required)</h2>
+
+            <p class="note"><strong>Overview:</strong> We use <strong>Radmin VPN</strong> to create a secure virtual LAN and <strong>USB Redirector (customer module)</strong> to forward the customer’s USB device to the technician’s computer. Admin rights are required.</p>
+
+            <h3>Step-by-step</h3>
+            <ol>
+              <li>Get explicit consent from the customer and log purpose + time.</li>
+              <li>Download the installers using the links on the right.</li>
+              <li>Install Radmin VPN (run as Administrator, allow drivers).</li>
+              <li>Join the VPN network using the technician’s name & password.</li>
+              <li>Install USB Redirector (run as Administrator, share device).</li>
+              <li>Technician connects through VPN to access the shared device.</li>
+              <li>End session: unshare device and confirm with customer.</li>
+            </ol>
+
+            <h4>Troubleshooting</h4>
+            <ul>
+              <li>VPN IP missing — restart Radmin VPN and rejoin the network.</li>
+              <li>USB not visible — run USB Redirector as Administrator.</li>
+              <li>Antivirus flags installer — verify source and whitelist if safe.</li>
+            </ul>
+          </div>
+
+          <aside class="right">
+            <h3>Downloads</h3>
+            <div class="download-row">
+              <a class="btn" href="/exe/radmin-vpn.exe" download>Download radmin-vpn.exe</a>
+              <a class="btn" href="/exe/usbredirector-customer-module.exe" download>Download usbredirector-customer-module.exe</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2025 GTServer</footer>
+
+  <script type="module" src="js/layout.js"></script>
+  <script src="/js/antiInspect.js"></script>
+</body>
+</html>
