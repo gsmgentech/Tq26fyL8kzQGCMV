@@ -12,6 +12,7 @@ export function loadLayout() {
           <li><a href="https://www.gentechserver.com/remote-service">Remote Service</a></li>
           <li><a href="https://www.gentechserver.com/samsungqr">Samsung QR Code</a></li>
           <li><a href="https://www.gentechserver.com/#contact">Contact</a></li>
+          <li><a href="https://www.gentechserver.com/login">Login</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
       </nav>
