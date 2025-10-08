@@ -4,6 +4,7 @@ export function loadLayout() {
       <nav class="navbar">
         <div class="logo">GENTECHSERVER</div>
         <ul class="nav-links">
+          <li><a href="https://www.gentechserver.com/login">Login</a></li>
           <li><a href="https://www.gentechserver.com">Home</a></li>
           <li><a href="https://www.gentechserver.com/#services">Services</a></li>
           <li><a href="https://www.gentechserver.com/frp">APK & FRP</a></li>
@@ -12,7 +13,6 @@ export function loadLayout() {
           <li><a href="https://www.gentechserver.com/remote-service">Remote Service</a></li>
           <li><a href="https://www.gentechserver.com/samsungqr">Samsung QR Code</a></li>
           <li><a href="https://www.gentechserver.com/#contact">Contact</a></li>
-          <li><a href="https://www.gentechserver.com/login">Login</a></li>
         </ul>
         <div class="hamburger"><span></span><span></span><span></span></div>
       </nav>
